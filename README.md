@@ -8,13 +8,15 @@ This repository holds the open pieces behind [Multitude](https://trymultitude.co
 - **[A reference MCP memory server](server/index.mjs)**: one file with no dependencies. It keeps your memory in a local file and gives any MCP client three tools: `multitude_brief`, `multitude_recall` and `multitude_remember`.
 - **[A conformance test](conformance/run.mjs)**: checks that any memory server, or any export file, follows the spec.
 
-Everything here is MIT licensed. You can run the server yourself, build your own server against the spec, or use the hosted version at `https://app.trymultitude.com/mcp`, which adds sign-in, teams, sync across devices and one chat with every model.
+Everything here is MIT licensed and will stay that way: see [GOVERNANCE.md](GOVERNANCE.md) for our commitments and how the format changes. You can run the server yourself, build your own server against the spec, or use the hosted version at `https://app.trymultitude.com/mcp`, which adds sign-in, teams, sync across devices and one chat with every model.
 
 ## Why
 
 Every AI tool now has its own memory, and none of them share it. What you tell ChatGPT, Claude Code doesn't know. What Cursor learns about your codebase, Claude doesn't know. A memory is only worth something if it follows you, so the format should be open and the data should be yours to export.
 
 ## Quick start (self-hosted, local)
+
+> **The reference server is single-user and local only.** It keeps one person's memory in one JSON file, ranks results by keyword and recency, and does not separate one user's private memories from another's. Use it to try the format, to test your own implementation, or for your own memory on your own machine. It is not a multi-tenant service: anything shared between people needs real sign-in, per-user access checks and transactional storage, which the hosted version adds.
 
 You need Node.js 18 or newer. No install step is needed.
 
@@ -100,7 +102,7 @@ The server checks write a few memories with keys starting `conformance-`, so poi
 
 ## Contributing
 
-Issues and pull requests are welcome. Changes to the format go through the spec first: open an issue describing the change and why. Minor versions only add optional fields, so existing files keep working.
+Issues and pull requests are welcome. Changes to the format go through the spec first: open an issue describing the change and why. Minor versions only add optional fields, so existing files keep working. The full process is in [GOVERNANCE.md](GOVERNANCE.md).
 
 ## Licence
 
