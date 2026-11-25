@@ -1,0 +1,40 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Unit tests, format check and stdio conformance
+        run: npm test
+        env:
+          MULTITUDE_MEMORY_FILE: ${{ runner.temp }}/memory.json
+      - name: HTTP conformance with a token
+        env:
+          MULTITUDE_MEMORY_FILE: ${{ runner.temp }}/memory-http.json
+          MULTITUDE_MEMORY_TOKEN: ci-only-not-a-secret
+        run: |
+          node server/index.mjs --http 8787 &
+          sleep 1
+          node conformance/run.mjs --url http://127.0.0.1:8787/mcp --token "$MULTITUDE_MEMORY_TOKEN"
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan for secrets with gitleaks
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz | tar xz gitleaks
+          ./gitleaks detect --source . --redact --verbose

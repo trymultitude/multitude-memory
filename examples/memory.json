@@ -1,0 +1,35 @@
+{
+  "format": "multitude-memory",
+  "version": "1.0",
+  "exported_at": "2026-11-25T21:00:00Z",
+  "workspace": { "name": "Acme Studio", "about": "A two-person design studio that builds booking apps for clinics." },
+  "projects": [
+    { "id": "p_booking", "name": "Clinic booking app", "description": "React Native app for patients", "instructions": "Use Australian spelling in all copy." }
+  ],
+  "memories": [
+    {
+      "id": "m_001", "key": "deploy-process", "text": "We deploy on Tuesdays and Thursdays only, after the test suite passes.",
+      "scope": "team", "status": "superseded", "superseded_by": "m_002",
+      "source": { "kind": "person", "author": "Sam" }, "project": null,
+      "created_at": "2026-10-01T09:00:00Z", "updated_at": "2026-11-20T10:30:00Z"
+    },
+    {
+      "id": "m_002", "key": "deploy-process", "text": "We deploy any weekday once the test suite passes and Sam has approved the release.",
+      "scope": "team", "status": "current", "superseded_by": null,
+      "source": { "kind": "agent", "agent": "claude-code", "author": "Sam" }, "project": null,
+      "created_at": "2026-11-20T10:30:00Z", "updated_at": "2026-11-20T10:30:00Z"
+    },
+    {
+      "id": "m_003", "key": "booking-timezones", "text": "Store every appointment in UTC and convert to the clinic's time zone only when displaying it.",
+      "scope": "team", "status": "current", "superseded_by": null,
+      "source": { "kind": "agent", "agent": "chatgpt", "author": "Alex" }, "project": "p_booking",
+      "created_at": "2026-11-02T04:12:00Z", "updated_at": "2026-11-02T04:12:00Z", "tags": ["backend"]
+    },
+    {
+      "id": "m_004", "key": "writing-style", "text": "I prefer short answers that lead with the decision.",
+      "scope": "private", "status": "current", "superseded_by": null,
+      "source": { "kind": "import", "origin": "obsidian", "author": "Alex" }, "project": null,
+      "created_at": "2026-09-14T22:00:00Z", "updated_at": "2026-09-14T22:00:00Z"
+    }
+  ]
+}

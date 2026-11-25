@@ -1,0 +1,27 @@
+# Publishes server.json to the official MCP Registry on each version tag (v*), or by hand.
+# Auth is GitHub OIDC (no stored secrets): it proves control of the io.github.trymultitude/* namespace.
+name: Publish to MCP Registry
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install mcp-publisher
+        run: |
+          curl -sSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+      - name: Set version from tag
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          jq --arg v "$V" '.version = $v' server.json > server.tmp && mv server.tmp server.json
+      - name: Log in (GitHub OIDC)
+        run: ./mcp-publisher login github-oidc
+      - name: Publish
+        run: ./mcp-publisher publish

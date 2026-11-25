@@ -1,0 +1,17 @@
+{
+  "name": "@trymultitude/memory",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Open memory format and reference MCP memory server, so every AI you use remembers the same things.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "multitude-memory": "server/index.mjs" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server/index.mjs",
+    "start:http": "node server/index.mjs --http 8787",
+    "test": "node --test test/validate.test.mjs && node conformance/run.mjs --file examples/memory.json && node conformance/run.mjs --stdio \"node server/index.mjs\"",
+    "conformance": "node conformance/run.mjs"
+  },
+  "repository": { "type": "git", "url": "https://github.com/trymultitude/multitude-memory" }
+}
