@@ -2,11 +2,17 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.trymultitude/multitude-memory",
   "title": "Multitude",
-  "description": "One shared memory for every AI you use: brief, recall and remember across Claude, ChatGPT, Cursor and coding agents.",
-  "repository": { "url": "https://github.com/trymultitude/multitude-memory", "source": "github" },
+  "description": "One memory for every AI you use. Claude, ChatGPT, Cursor and coding agents remember the same things.",
+  "repository": {
+    "url": "https://github.com/trymultitude/multitude-memory",
+    "source": "github"
+  },
   "websiteUrl": "https://trymultitude.com",
   "version": "1.0.0",
   "remotes": [
-    { "type": "streamable-http", "url": "https://app.trymultitude.com/mcp" }
+    {
+      "type": "streamable-http",
+      "url": "https://app.trymultitude.com/mcp"
+    }
   ]
 }
