@@ -104,6 +104,10 @@ The server checks write a few memories with keys starting `conformance-`, so poi
 
 Issues and pull requests are welcome. Changes to the format go through the spec first: open an issue describing the change and why. Minor versions only add optional fields, so existing files keep working. The full process is in [GOVERNANCE.md](GOVERNANCE.md).
 
+## About
+
+Multitude is built by [Daniel Dizon](https://github.com/danieldizon-ai) and incubated by [Rejoice](https://rejoice.global), a Christian technology company focused on faith and flourishing, and on sovereign AI: private systems that people and communities own and control. Multitude itself is a neutral tool for everyone, and this spec and server are open to all under the MIT licence.
+
 ## Licence
 
 [MIT](LICENSE)
