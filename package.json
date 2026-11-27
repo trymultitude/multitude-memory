@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server/index.mjs",
     "start:http": "node server/index.mjs --http 8787",
-    "test": "node --test test/validate.test.mjs && node conformance/run.mjs --file examples/memory.json && node conformance/run.mjs --stdio \"node server/index.mjs\"",
+    "test": "node --test test/validate.test.mjs test/security.test.mjs && node conformance/run.mjs --file examples/memory.json && node conformance/run.mjs --stdio \"node server/index.mjs\"",
     "conformance": "node conformance/run.mjs"
   },
   "repository": { "type": "git", "url": "https://github.com/trymultitude/multitude-memory" }
