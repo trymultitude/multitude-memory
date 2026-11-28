@@ -105,6 +105,9 @@ caller why. The list is a floor, not a ceiling.
 - `(sk|rk)_(live|test)_[A-Za-z0-9]{16,}` (Stripe keys)
 - `eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}` (JSON Web Tokens)
 - `(password|passwd|pwd)\s*[:=]\s*\S{6,}` (case-insensitive)
+- `(password|passwd|passcode)\s+(is|was)\s+\S{6,}` (case-insensitive)
+- `[a-z][a-z0-9+.-]*://[^\s/:@]+:[^\s/@]{3,}@` (credentials inside a URL, case-insensitive)
+- `Bearer\s+[A-Za-z0-9._~+/=-]{20,}` (bearer tokens)
 
 ## 6. Versioning
 

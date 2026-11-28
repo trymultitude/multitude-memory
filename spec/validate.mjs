@@ -11,6 +11,9 @@ export const SECRET_PATTERNS = [
   /\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}/,
   /\beyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}/,
   /\b(?:password|passwd|pwd)\s*[:=]\s*\S{6,}/i,
+  /\b(?:password|passwd|passcode)\s+(?:is|was)\s+\S{6,}/i,
+  /\b[a-z][a-z0-9+.-]*:\/\/[^\s\/:@]+:[^\s\/@]{3,}@/i,
+  /\bBearer\s+[A-Za-z0-9._~+\/=-]{20,}/,
 ];
 
 export function looksLikeSecret(text) {

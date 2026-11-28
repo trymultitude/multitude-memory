@@ -55,7 +55,7 @@ claude mcp add multitude-memory -- node /absolute/path/to/multitude-memory/serve
 MULTITUDE_MEMORY_TOKEN=choose-a-long-random-string node server/index.mjs --http 8787
 ```
 
-The server listens on `http://127.0.0.1:8787/mcp` and requires `Authorization: Bearer <token>` when `MULTITUDE_MEMORY_TOKEN` is set. It binds to localhost only; put it behind TLS and your own authentication before exposing it anywhere else.
+The server listens on `http://127.0.0.1:8787/mcp` and requires `Authorization: Bearer <token>`. It refuses to start in HTTP mode without `MULTITUDE_MEMORY_TOKEN`, because without one any process or web page on your machine could reach your memory; set `MULTITUDE_ALLOW_NO_TOKEN=1` only if you accept that. It binds to localhost only, accepts only `Content-Type: application/json`, and rejects requests whose `Host` or browser `Origin` is not local, which blocks cross-site writes and DNS rebinding. To serve it under another name, list it in `MULTITUDE_ALLOWED_HOSTS` (and `MULTITUDE_ALLOWED_ORIGINS` for browser clients), and put it behind TLS and your own authentication before exposing it anywhere else.
 
 ## Hosted version
 
