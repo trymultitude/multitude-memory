@@ -1,0 +1,10 @@
+{
+  "id": "multitude",
+  "name": "Multitude",
+  "version": "0.1.0",
+  "minAppVersion": "1.6.0",
+  "description": "Two-way sync with Multitude: your notes become memory every AI can use, and your memory comes back as notes.",
+  "author": "Multitude",
+  "authorUrl": "https://trymultitude.com",
+  "isDesktopOnly": false
+}
