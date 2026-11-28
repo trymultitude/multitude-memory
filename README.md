@@ -7,6 +7,7 @@ This repository holds the open pieces behind [Multitude](https://trymultitude.co
 - **[The Multitude Memory Format](spec/memory-format.md)**: a small JSON format for moving memory between AI tools without losing history or authorship. It comes with a [JSON Schema](spec/memory-format.schema.json) and a dependency-free [validator](spec/validate.mjs).
 - **[A reference MCP memory server](server/index.mjs)**: one file with no dependencies. It keeps your memory in a local file and gives any MCP client three tools: `multitude_brief`, `multitude_recall` and `multitude_remember`.
 - **[A conformance test](conformance/run.mjs)**: checks that any memory server, or any export file, follows the spec.
+- **[Converters to other open formats](interop/README.md)**: two-way conversion with [Portable Memory](https://github.com/MacPaw/portable-memory) `.mem` bundles, so your memory is never tied to one format.
 
 Everything here is MIT licensed and will stay that way: see [GOVERNANCE.md](GOVERNANCE.md) for our commitments and how the format changes. You can run the server yourself, build your own server against the spec, or use the hosted version at `https://app.trymultitude.com/mcp`, which adds sign-in, teams, sync across devices and one chat with every model.
 
